@@ -44,8 +44,8 @@
         <TextBox x:Name="AddNewValueInput" HorizontalAlignment="Left"  Height="23" Margin="82,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="AddNewValueInput_TextChanged" Width="120" TabIndex="3" />
         <Label Content="New Value" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
         <Separator HorizontalAlignment="Left" Height="15" Margin="17,171,0,0" VerticalAlignment="Top" Width="265"/>
-        <Label Content="Paste Units" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Width="117" Grid.ColumnSpan="2"/>
-        <Button x:Name="PasteUnitsButton" Content="Paste" HorizontalAlignment="Left" Margin="207,191,0,0" VerticalAlignment="Top" Width="75" Click="PasteUnitsButton_Click" TabIndex="6"/>
+        <Label Content="Paste Goal Units" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Width="117" Grid.ColumnSpan="2"/>
+        <Button x:Name="PasteUnitsButton" Content="Paste Goal " HorizontalAlignment="Left" Margin="207,191,0,0" VerticalAlignment="Top" Width="75" Click="PasteUnitsButton_Click" TabIndex="6"/>
         <DataGrid Margin="296,10,10,0" VerticalAlignment="Top" Height="308" Name="ArbitrationGrid" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Current No. Units" Width="110" Binding="{Binding CurrentNumberOfUnits}" />
@@ -54,5 +54,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        <Label Content="Paste Current Units" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="83"/>
+        <Button Content="Paste Current&#xD;&#xA;" HorizontalAlignment="Left" Margin="182,225,0,0" VerticalAlignment="Top" Width="100" Height="23" Click="Button_Click"/>
     </Grid>
 </Window>

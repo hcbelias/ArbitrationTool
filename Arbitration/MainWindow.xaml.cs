@@ -246,6 +246,54 @@ namespace Arbitration
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            object contentCopy = Clipboard.GetData("Text");
+            List<GridModel> oldGridData = this.GetGridData();
+            if (contentCopy != null)
+            {
+                try
+                {
+                    string contentString = (string)contentCopy;
+
+                    foreach (string row in contentString.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(row))
+                        {
+                            List<string> cellList = row.Split('\r', '\t').ToList();
+                            cellList.RemoveAll(p => string.IsNullOrWhiteSpace(p));
+
+                            switch (cellList.Count)
+                            {
+                                case 1:
+                                    this.ArbitrationGrid.Items.Add(new GridModel()
+                                    {
+                                        CurrentNumberOfUnits = Double.Parse(cellList[0]),
+                                        GoalNumberOfUnits = 0,
+                                        ArbitratedNumberOfUnits = 0
+                                    });
+                                    break;
+                            }
+                        }
+                    }
+
+                }
+                catch (Exception error)
+                {
+                    this.ArbitrationGrid.Items.Clear();
+                    oldGridData.ForEach(p =>
+                    {
+                        this.ArbitrationGrid.Items.Add(p);
+                    });
+                    ShowErrorMessage(error.Message);
+                }
+                finally
+                {
+                    UpdateArbitration();
+                }
+            }
+        }
+
 
     }
 
